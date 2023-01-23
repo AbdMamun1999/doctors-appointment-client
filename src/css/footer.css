@@ -1,0 +1,199 @@
+.footer-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: #1976D2;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color:'white'
+}
+
+
+
+   /* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+   
+    .footer-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap:'10px';
+        width: 90%;
+        margin:auto;
+    }
+    .footer-container > div:nth-child(1){
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        align-items: center;
+    }
+    .footer-container > div:nth-child(2){
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        align-items: center;
+    }
+    .footer-container > div:nth-child(3){
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        align-items: center;
+    }
+    .footer-container > div:nth-child(4){
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        align-items: center;
+    }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .footer-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap:'10px';
+        width: 90%;
+        margin:auto;
+    }
+    .footer-container > div:nth-child(1){
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        align-items: center;
+    }
+    .footer-container > div:nth-child(2){
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        align-items: center;
+    }
+    .footer-container > div:nth-child(3){
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        align-items: center;
+    }
+    .footer-container > div:nth-child(4){
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        align-items: center;
+    }
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .footer-container{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        justify-content: center;
+        column-gap: 10px;
+        row-gap: 10px;
+        width: 90%;
+        margin:auto;
+    }
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    
+}
+/* Extra large devices (large laptops and desktops, 1024px and up) */
+@media only screen and (min-width: 1024px) {
+    .footer-container{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        justify-content: center;
+        column-gap: 10px;
+        row-gap: 10px;
+        width: 90%;
+        margin:auto;
+    }
+    .footer-container > div:nth-child(1){
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+        justify-content: flex-start;
+        padding-left: 2px;
+    }
+    .footer-container > div:nth-child(2){
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 5px;
+        align-items: flex-start;
+    }
+    .footer-container > div:nth-child(3){
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 5px;
+        align-items: flex-start;
+    }
+    .footer-container > div:nth-child(4){
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        align-items: center;
+        
+    }
+    .footer-container > div:nth-child(5){
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        align-items: center;
+        
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .footer-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        gap:'10px'
+    }
+
+    .footer-container > div:nth-child(1){
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+        justify-content: flex-start;
+    }
+    .footer-container > div:nth-child(2){
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 5px;
+        align-items: flex-start;
+    }
+    .footer-container > div:nth-child(3){
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 5px;
+        align-items: flex-start;
+    }
+    .footer-container > div:nth-child(4){
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        align-items: center;
+    }
+}
