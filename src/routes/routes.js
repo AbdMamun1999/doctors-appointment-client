@@ -1,4 +1,6 @@
 import Specialities from "../components/Specialities/Specialities";
+import Hospitals from "../components/Hospitals/Hospitals";
+import Ambulence from "../components/Ambulence/Ambulence";
 import Hospitals from '../components/Hospitals/Hospitals';
 import Ambulence from '../components/Ambulence/Ambulence'
 import Main from "../Layouts/main/Main";
@@ -11,30 +13,29 @@ const routes = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
-    children:[
+    children: [
       {
-        path:"/",
-        element:<Home/>
+        path: "/",
+        element: <Home />,
       },
       {
-        path:'Specialities',
-        element:<Specialities />
+        path: "Specialities",
+        element: <Specialities />,
       },
       {
-        path:'Hospitals',
-        element:<Hospitals />
+        path: "Hospitals",
+        element: <Hospitals />,
       },
       {
-        path:'Ambulence',
-        element:<Ambulence />
+        path: "Ambulence",
+        element: <Ambulence />,
       },
       {
-        path:'Contact-us',
-        element:<Contactus />
-      }
-    ]
+        path: "Contact-us",
+        element: <Contactus />,
+      },
+    ],
   },
-
 ]);
 
 export default routes;
