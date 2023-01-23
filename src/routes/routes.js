@@ -4,6 +4,7 @@ import Ambulence from "../components/Ambulence/Ambulence";
 import Main from "../Layouts/main/Main";
 import Home from "../pages/main/Home";
 import Contactus from "../components/ContactUs/Contactus";
+import Login from "../pages/main/Login";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -32,6 +33,7 @@ const routes = createBrowserRouter([
         path: "Contact-us",
         element: <Contactus />,
       },
+      { path: "login", element: <Login /> },
     ],
   },
 ]);
