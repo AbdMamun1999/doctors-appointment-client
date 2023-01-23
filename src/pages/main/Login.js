@@ -1,11 +1,10 @@
-import React from 'react';
+import React from "react";
+import { Container } from "@mate";
 
 const Login = () => {
-    return (
-        <div>
-            login
-        </div>
-    );
+  return <>
+    
+  </>;
 };
 
 export default Login;

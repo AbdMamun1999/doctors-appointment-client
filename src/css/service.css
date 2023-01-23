@@ -1,0 +1,132 @@
+.service-container{
+    padding-top: 15px;
+    width: 90%;
+    margin: auto;
+    padding-bottom: 20px;
+}
+.service-container > span{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 15px;
+}
+.service-container > span:nth-child(1) > p:nth-child(1){
+    font-size: 15px;
+    font-weight: 400;
+}
+.service-container > span:nth-child(1) > p:nth-child(2){
+    font-size: 18px;
+    font-weight: 500;
+    color: #003D79;
+}
+
+.service-title{
+    background-color: #003D79;
+    height: 70px;
+    width: 100%;
+    left: 5;
+    color: white;
+    display: flex;
+    font-size: 20px;
+    flex-direction: row;
+    align-items: center;
+    
+}
+.services{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    width: 100%;
+    row-gap: 20px;
+    column-gap: 20px;
+    padding-top: 35px;
+}
+.services > div > img{
+    width: 100%;
+    height: 50%;
+}
+.services > div{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    transition: 0.8s;
+}
+.services > div:hover{
+    transform: scale(1.05);
+}
+.services > div > div:nth-child(2){
+    padding: 5px 6px 0 4px;
+    text-align: justify;
+}
+.services > div > div:nth-child(2) > h4{
+    color: #003D79;
+    padding-bottom: 5px;
+}
+.services > div > div:nth-child(2) > p{
+    color: #2c5680;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.hidden{
+    opacity: 0;
+    transition: all 1s;
+}
+
+.show{
+    opacity: 1;
+}
+
+
+
+@media screen and (min-width: 400px) {
+    .services{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        width: 100%;
+        row-gap: 20px;
+        column-gap: 20px;
+        padding-top: 35px;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .services{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        width: 100%;
+        row-gap: 20px;
+        column-gap: 20px;
+        padding-top: 35px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+  
+}
+
+@media screen and (min-width: 830px) {
+    .services{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        width: 100%;
+        row-gap: 20px;
+        column-gap: 20px;
+        padding-top: 35px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .services{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        width: 100%;
+        row-gap: 20px;
+        column-gap: 20px;
+        padding-top: 35px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+
+}
+
+@media screen and (min-width: 1200px) {
+
+}
