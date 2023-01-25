@@ -37,13 +37,18 @@ const Carousels = () => {
             description: "Hello World!"
         },
         {
-            name: "Random Name #2",
+            name: "Random Name #3",
             image:'/images/Slide-3.jpg',
             description: "Hello World!"
         },
         {
-            name: "Random Name #2",
+            name: "Random Name #4",
             image:'/images/Slide-4.jpg',
+            description: "Hello World!"
+        },
+        {
+            name: "Random Name #5",
+            image:'/images/Slide-6.jpg',
             description: "Hello World!"
         }
     ]

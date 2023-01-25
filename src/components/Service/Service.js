@@ -32,7 +32,7 @@ const Service = () => {
         <p>Choosing a medical specialty is one fo the most significiant decisions you'll make.</p>
         <p>We can help</p>
       </span>
-      <div className='service-title'>Services we provide you</div>
+      <div className='service-title'>Special services we provide you</div>
       <div className='services'>
         {
             service.map((item,index)=>(

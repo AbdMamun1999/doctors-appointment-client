@@ -1,0 +1,76 @@
+.covid-container{
+    width: 90%;
+    margin: auto;
+    margin-bottom: 10px;
+    position: relative;
+    background: #ff00cc;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right , #ff00cc, #333399);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ff00cc, #333399); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-radius: 8px;
+    height: 200px;
+}
+
+.covid-container .text{
+    position: absolute;
+    color: white;
+    top: 31px;
+    left: 5px;
+    width: 25;
+    height: 1;
+    transform: rotate(-35deg);
+    z-index: 99;
+}
+.bgclr{
+    background-color: #333399;
+    
+    position: absolute;
+    height: 30px;
+    width: 140px;
+    z-index: 9;
+    top: 20px;
+    left: 1px;
+    transform: skewY(-35deg);
+    border-top-color: transparent;
+}
+.wtclr{
+    height: 30px;
+    position: absolute;
+    top: -30px;
+    width: 30%;
+    z-index: 999;
+    background-color: white;
+}
+.guidelines{
+    position: absolute;
+    left: 150px;
+}
+
+.covid-image{
+    height: 100%;
+    width: 100%;
+}
+.covid-image > img{
+    height: 83%;
+    width: 30%;
+    position: absolute;
+    right: 0;
+    border-radius: 5px;
+    bottom: 0;
+}
+.note{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: aliceblue;
+    color: black;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 2px 5px 2px 5px;
+    border-top-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.note > p{
+    
+}
