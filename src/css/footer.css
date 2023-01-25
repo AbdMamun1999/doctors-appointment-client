@@ -20,7 +20,7 @@
         flex-direction: column;
         justify-content: center;
         gap:'10px';
-        width: 90%;
+       
         margin:auto;
     }
     .footer-container > div:nth-child(1){
@@ -59,7 +59,7 @@
         flex-direction: column;
         justify-content: center;
         gap:'10px';
-        width: 90%;
+       
         margin:auto;
     }
     .footer-container > div:nth-child(1){
@@ -99,7 +99,7 @@
         justify-content: center;
         column-gap: 10px;
         row-gap: 10px;
-        width: 90%;
+       
         margin:auto;
     }
 }
@@ -115,13 +115,15 @@
         justify-content: center;
         column-gap: 10px;
         row-gap: 10px;
-        width: 90%;
+        
         margin:auto;
     }
     .footer-container > div:nth-child(1){
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        margin-left: 15px;
+        margin-right: 15px;
         gap: 5px;
         justify-content: flex-start;
         padding-left: 2px;
@@ -173,6 +175,8 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 5px;
+        margin-left: 0;
+        margin-right: 0;
         justify-content: flex-start;
     }
     .footer-container > div:nth-child(2){

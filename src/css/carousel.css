@@ -1,4 +1,50 @@
-.carousel-container > div{
+/* .carousel-container > div{
     height: 450px;
     
+    
 }
+.carousel-content{
+    position: relative;
+    
+}
+.carousel-content > h2{
+    position: absolute;
+    top:40%;
+    left:3%;
+}
+.carousel-content > p{
+    position: absolute;
+    top:47%;
+    left:3%;
+}
+.carousel-content > button{
+    position: absolute;
+    top:54%;
+    left:3%;
+} */
+.carousel-container {
+    height: 400px;
+}
+.carousel-container >div{
+    
+}
+.carousel-content{
+ position: relative;
+ height: 400px;
+}
+.name{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    font-size: 18px;
+   
+}
+.slide.selected > .carousel-content > .name{
+    color: rebeccapurple;
+    bottom: 10px;
+    transition: 0.5s;
+}
+.carousel-img{
+    height: 100%;
+}
+

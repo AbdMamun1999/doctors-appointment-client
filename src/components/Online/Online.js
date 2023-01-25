@@ -51,7 +51,8 @@ const Online = () => {
           transitionDuration="all .8"
           arrows={true}
           responsive={responsive}
-          focusOnSelect={true}
+          pauseOnHover={false}
+          // focusOnSelect={true}
         >
           
               {online.map((onlineitem)=>(
@@ -59,9 +60,9 @@ const Online = () => {
                   <Card raised className='Banner' >
                     <img src={onlineitem.image} alt="No Image"  />
                   </Card>
-                  <Box sx={{display:'flex',flexDirection:'column'}}>
+                  <Box className="online-text" sx={{display:'flex',flexDirection:'column'}}>
                     <Typography variant='h8' fontSize={13}>{onlineitem.title}</Typography>
-                    <Typography variant='h7'>{onlineitem.action}</Typography>
+                    <Typography className='online-action' variant='h7'>{onlineitem.action}</Typography>
                   </Box>
                 </>
               ))}

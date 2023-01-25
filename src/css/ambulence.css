@@ -1,0 +1,117 @@
+.ambulance-container{
+    height: 40vh;
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+}
+.highway{
+    height: 90px;
+    width: 500%;
+    display: block;
+    position: absolute;
+    top: 200px;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background-repeat: repeat-x;
+    animation: highway 5s linear infinite;
+}
+.city{
+    height: 200px;
+    width: 500%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    z-index: 1;
+    background-repeat: repeat-x;
+    animation: city 20s linear infinite;
+}
+
+.car{
+    width: 600px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    bottom: 60px;
+    z-index: 2;
+    
+}
+.car img{
+    
+    width: 40%;
+    animation: car 1s linear infinite;
+}
+
+.wheel{
+
+    left:50%;
+    bottom: 110px;
+    transform: translateX(-50%);
+    position: absolute;
+    z-index: 2;
+
+}
+.wheel img{
+    width: 60px;
+    height: 56px;
+    animation: wheel 1s linear infinite;
+}
+.back-wheel{
+    left: -277px;
+    position: absolute;
+    bottom: -45px;
+}
+.front-wheel{
+    left: -125px;
+    bottom: -45px;
+    position: absolute;
+}
+.content{
+    display: flex;
+    flex-direction: row;
+}
+.content > div:nth-child(1){
+    flex: 4;
+}
+.content > div:nth-child(2){
+    flex: 2;
+}
+.ambulance-form > .submitbtn{
+    height:40px;
+    background-color: brown;
+    width:100%;
+    border-radius:0;
+    color:white;
+}
+.ambulance-form > .submitbtn:hover{
+    background-color: green;
+}
+@keyframes highway {
+    100%{
+        transform:translateX(-1500px);
+    }
+}
+@keyframes city{
+    100%{
+        transform: translateX(-1400px);
+    }
+}
+@keyframes car{
+    100%{
+        transform: translateY(-3px);
+    }
+    50%{
+        transform: translateX(1px);
+    }
+    0%{
+        transform: translateY(-3px);
+    }
+}
+
+@keyframes wheel{
+    100%{
+        transform:rotate(360deg);
+    }
+}
