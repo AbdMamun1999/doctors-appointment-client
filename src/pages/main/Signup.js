@@ -8,9 +8,8 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Link } from "react-router-dom";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
-import { Divider } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { userLogin } from "../../features/auth/authSlice";
+import { createUser } from "../../features/auth/authSlice";
 
 const theme = createTheme({
   palette: {
@@ -20,7 +19,7 @@ const theme = createTheme({
   },
 });
 
-const Login = () => {
+const Signup = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
@@ -30,8 +29,10 @@ const Login = () => {
       email: data.get("email"),
       password: data.get("password"),
     };
-    dispatch(userLogin(user));
+
+    dispatch(createUser(user));
   };
+
   return (
     <ThemeProvider theme={theme}>
       <Container
@@ -54,7 +55,7 @@ const Login = () => {
           }}
         >
           <Typography component="h1" variant="h5">
-            Sign in
+            Sign Up
           </Typography>
           <Box
             component="form"
@@ -98,7 +99,6 @@ const Login = () => {
               </Typography>
             </Box>
           </Box>
-          <Divider variant="middle" />
           <SocialLogin />
         </Box>
       </Container>
@@ -106,4 +106,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;
