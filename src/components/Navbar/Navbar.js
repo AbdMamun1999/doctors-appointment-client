@@ -54,7 +54,8 @@ const Navbar = () => {
 
   const handleLogout = () => {
     signOut(auth).then(() => {
-      dispatch(logout);
+      dispatch(logout());
+      // dispatch()
     });
   };
 
@@ -141,7 +142,7 @@ const Navbar = () => {
               {pages.map((page, index) => (
                 <MenuItem key={index} onClick={handleCloseNavMenu}>
                   <Link className="navButton" to={`/${page}`}>
-                    <Typography textAlign="center">{page}</Typography>
+                    <Typography sx={{textAlign:'center'}}>{page}</Typography>
                   </Link>
                 </MenuItem>
               ))}
@@ -222,25 +223,23 @@ const Navbar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {/* {settings.map((setting,index) => ( */}
               <MenuItem>
-                <Typography textAlign="center">Profile</Typography>
+                <Typography sx={{textAlign:'center'}}>Profile</Typography>
               </MenuItem>
               <MenuItem>
-                <Typography textAlign="center">Dashboard</Typography>
+                <Typography sx={{textAlign:'center'}}>Dashboard</Typography>
               </MenuItem>
               <MenuItem>
                 {email ? (
-                  <Typography onClick={handleLogout} textAlign="center">
+                  <Typography onClick={handleLogout} sx={{textAlign:'center'}}>
                     Logout
                   </Typography>
                 ) : (
-                  <Link to="/login" textAlign="center">
+                  <Link to="/login" sx={{textAlign:'center'}}>
                     Login
                   </Link>
                 )}
               </MenuItem>
-              {/* ))} */}
             </Menu>
           </Box>
         </Toolbar>

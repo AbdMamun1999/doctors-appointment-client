@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
@@ -6,10 +6,11 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { createUser } from "../../features/auth/authSlice";
+import { toast } from "react-hot-toast";
 
 const theme = createTheme({
   palette: {
@@ -21,6 +22,10 @@ const theme = createTheme({
 
 const Signup = () => {
   const dispatch = useDispatch();
+  const { isLoading, email, isError, error } = useSelector(
+    (state) => state.auth
+  );
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -32,6 +37,19 @@ const Signup = () => {
 
     dispatch(createUser(user));
   };
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(error);
+    }
+  }, [isError, error]);
+
+  useEffect(() => {
+    if (!isLoading && email) {
+      toast.success("successfully registered");
+      navigate("/");
+    }
+  }, [isLoading, email]);
 
   return (
     <ThemeProvider theme={theme}>
@@ -90,12 +108,14 @@ const Signup = () => {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign In
+              Sign up
             </Button>
             <Box>
               <Typography>
-                Don't have an account?
-                <Link to="/">Sign up</Link>
+                have an account?
+                <Box>
+                  <Link to="/login">login</Link>
+                </Box>
               </Typography>
             </Box>
           </Box>
