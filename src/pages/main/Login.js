@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Link, useNavigate } from "react-router-dom";
-import SocialLogin from "../../components/SocialLogin/SocialLogin";
+// import SocialLogin from "../../components/SocialLogin/SocialLogin";
 import { Divider } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { userLogin } from "../../features/auth/authSlice";
@@ -117,7 +117,7 @@ const Login = () => {
             </Box>
           </Box>
           <Divider variant="middle" />
-          <SocialLogin />
+          {/* <SocialLogin /> */}
         </Box>
       </Container>
     </ThemeProvider>

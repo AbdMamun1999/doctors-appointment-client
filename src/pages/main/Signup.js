@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Link, useNavigate } from "react-router-dom";
-import SocialLogin from "../../components/SocialLogin/SocialLogin";
+// import SocialLogin from "../../components/SocialLogin/SocialLogin";
 import { useDispatch, useSelector } from "react-redux";
 import { createUser } from "../../features/auth/authSlice";
 import { toast } from "react-hot-toast";
@@ -119,7 +119,7 @@ const Signup = () => {
               </Typography>
             </Box>
           </Box>
-          <SocialLogin />
+          {/* <SocialLogin /> */}
         </Box>
       </Container>
     </ThemeProvider>
