@@ -2,18 +2,35 @@ import React, { useState } from 'react'
 import {Box, Button, InputLabel, MenuItem, Select, TextField, Typography} from '@mui/material'
 import '../../css/ambulence.css'
 import { ambulances } from '../../extra/data'
+import 'react-telephone-input/css/default.css'
+import { ReactTelephoneInput } from 'react-telephone-input'
 import MuiPhoneNumber from 'material-ui-phone-number'
 const Ambulence = () => {
   const [phone, setPhone] = useState('')
   const [ambType,setAmbType]=useState('')
+
   const handleChange=(event)=>{
     setAmbType(event.target.value)
   }
-  const handleNumberChange=(value)=>{
-    setPhone({
-      phone:value
-    })
+  // const handleNumberChange=(value)=>{
+  //   setPhone({
+  //     phone:value
+  //   })
+  // }
+
+  function handleInputChange(telNumber, selectedCountry) {
+    console.log('input changed. number: ', telNumber, 'selected country: ', selectedCountry)
   }
+  
+  function handleInputBlur(telNumber, selectedCountry) {
+    console.log(
+      'Focus off the ReactTelephoneInput component. Tel number entered is: ',
+      telNumber,
+      ' selected country is: ',
+      selectedCountry
+    )
+  }
+
   return (
     <>
     <Box className="ambulance-container">
@@ -98,7 +115,14 @@ const Ambulence = () => {
           </Box>
           <Box sx={{display:'flex',flexDirection:'column' ,padding:'5px 5px 5px 5px'}}>
             <label sx={{}}>Mobile</label>
-            <MuiPhoneNumber defaultCountry={'bd'} onChange={handleNumberChange} />
+            {/* <MuiPhoneNumber defaultCountry={'bd'} onChange={handleNumberChange} /> */}
+            <ReactTelephoneInput 
+            
+              defaultCountry='bd'
+              flagsImagePath="/path/to/images/flags.png"
+              onChange={handleInputChange}
+              onBlur={handleInputBlur}
+            />
           </Box>
           <Button className="submitbtn">Send request</Button>
          </form>
