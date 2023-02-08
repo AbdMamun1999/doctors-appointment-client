@@ -6,6 +6,7 @@ import Home from "../pages/main/Home";
 import Contactus from "../components/ContactUs/Contactus";
 import Login from "../pages/main/Login";
 import Signup from "../pages/main/Signup";
+import GetStarted from "../pages/main/GetStarted";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -36,6 +37,7 @@ const routes = createBrowserRouter([
       },
       { path: "login", element: <Login /> },
       { path: "register", element: <Signup /> },
+      {path:"get-started",element:<GetStarted/>}
     ],
   },
 ]);

@@ -47,7 +47,7 @@ const Signup = () => {
   useEffect(() => {
     if (!isLoading && email) {
       toast.success("successfully registered");
-      navigate("/");
+      navigate("/get-started");
     }
   }, [isLoading, email]);
 
