@@ -10,7 +10,7 @@ import routes from "./routes/routes";
 
 function App() {
   const dispatch = useDispatch();
-  const token = useToken()
+  // const token = useToken()
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -19,7 +19,7 @@ function App() {
         // dispatch(setTokenAndRole(token))
       }
     });
-  }, [token]);
+  }, []);
 
   return (
     <>

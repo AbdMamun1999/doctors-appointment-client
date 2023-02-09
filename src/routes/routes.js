@@ -7,6 +7,7 @@ import Contactus from "../components/ContactUs/Contactus";
 import Login from "../pages/main/Login";
 import Signup from "../pages/main/Signup";
 import GetStarted from "../pages/main/GetStarted";
+import Dashboard from "../Layouts/dashboard/Dashboard";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -40,6 +41,10 @@ const routes = createBrowserRouter([
       {path:"get-started",element:<GetStarted/>}
     ],
   },
+  {
+    path:'/dashboard',
+    element:<Dashboard/>
+  }
 ]);
 
 export default routes;
