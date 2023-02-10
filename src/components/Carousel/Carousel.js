@@ -43,6 +43,7 @@ const Carousels = () => {
         },
         {
             name: "Intensive care",
+            name: "Random Name #3",
             image:'/images/Slide-3.jpg',
             description: "Intensive care is our primary goal and make patients happy"
         },
@@ -55,6 +56,12 @@ const Carousels = () => {
             name: "Donation and help",
             image:'/images/Slide-6.jpg',
             description: "Our donation should go for intensive necessity"
+          
+        },
+        {
+            name: "Random Name #5",
+            image:'/images/Slide-6.jpg',
+            description: "Hello World!"
         }
     ]
 

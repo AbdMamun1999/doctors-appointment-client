@@ -15,6 +15,7 @@ const Home = () => {
           <InClinic />
           <Covid />
         </div>;
+    
 };
 
 export default Home;

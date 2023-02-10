@@ -143,7 +143,6 @@
     align-items: center;
     gap: 5px;
 }
-
 .online-text > span:nth-child(1){
     font-size: 15px;
     padding-bottom: 8px;

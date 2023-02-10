@@ -1,15 +1,21 @@
-import React from "react";
+
+import React, { useEffect } from "react";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
+import '../../css/auth.css'
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Link } from "react-router-dom";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
-import { useDispatch } from "react-redux";
+import { Divider } from "@mui/material";
 import { createUser } from "../../features/auth/authSlice";
+import { Link, useNavigate } from "react-router-dom";
+// import SocialLogin from "../../components/SocialLogin/SocialLogin";
+import { useDispatch, useSelector } from "react-redux";
+
+import { toast } from "react-hot-toast";
 
 const theme = createTheme({
   palette: {
@@ -21,6 +27,10 @@ const theme = createTheme({
 
 const Signup = () => {
   const dispatch = useDispatch();
+  const { isLoading, email, isError, error } = useSelector(
+    (state) => state.auth
+  );
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -33,24 +43,46 @@ const Signup = () => {
     dispatch(createUser(user));
   };
 
+  useEffect(() => {
+    if (isError) {
+      toast.error(error);
+    }
+  }, [isError, error]);
+
+  useEffect(() => {
+    if (!isLoading && email) {
+      toast.success("successfully registered");
+      navigate("/get-started");
+    }
+  }, [isLoading, email]);
+
   return (
     <ThemeProvider theme={theme}>
       <Container
         component="main"
-        maxWidth="xs"
-        sx={{
-          bgcolor: "#EEEEEE",
-          shadows: 3,
-        }}
+        // maxWidth="xs"
+        // sx={{
+        //   bgcolor: "#EEEEEE",
+        //   shadows: 3,
+        // }}
+       
+        className="auth-container"
       >
         <CssBaseline />
+        
         <Box
+          
           sx={{
             marginTop: 8,
             display: "flex",
+            
+            margin:'auto',
             flexDirection: "column",
             alignItems: "center",
+
             paddingX: 5,
+            bgcolor: "#EEEEEE",
+            shadows: 3,
             paddingY: 3,
           }}
         >
@@ -92,14 +124,19 @@ const Signup = () => {
             >
               Sign In
             </Button>
-            <Box>
+            <Box sx={{display:'flex',flexDirection:'row',gap:'10px',paddingBottom:'10px'}}>
               <Typography>
-                Don't have an account?
-                <Link to="/">Sign up</Link>
+                Have an account?
               </Typography>
+              <Link to="/login">Sign In</Link>
             </Box>
           </Box>
-          <SocialLogin />
+          <Divider variant="middle" />
+          <Box sx={{width:'100%'}}>
+              
+              <SocialLogin />
+          </Box> 
+          {/* <SocialLogin /> */}
         </Box>
       </Container>
     </ThemeProvider>

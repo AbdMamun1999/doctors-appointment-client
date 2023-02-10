@@ -4,6 +4,8 @@ import { Box, Button, Card, InputLabel, StepperContext, TextField, Typography } 
 import Modal from '@mui/material/Modal'
 import PhoneInput, { isPossiblePhoneNumber } from 'react-phone-number-input'
 import React, { useState } from 'react'
+
+
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 import '../../css/online.css'
@@ -22,26 +24,31 @@ const Online = () => {
       // the naming can be any, depends on you.
       breakpoint: { max: 1400, min: 1200 },
       items: 5,
+      
     },
     extralarge: {
       // the naming can be any, depends on you.
       breakpoint: { max: 1200, min: 992 },
       items: 5,
+     
     },
     large: {
       // the naming can be any, depends on you.
       breakpoint: { max: 992, min: 768 },
       items: 4,
+      
     },
     medium: {
       breakpoint: { max: 768, min: 576 },
       items: 3,
       partialVisibilityGutter: 40,
+     
     },
     small: {
       breakpoint: { max: 576, min: 464 },
       items: 2,
       partialVisibilityGutter: 30,
+      
     },
     xsmall: {
       breakpoint: { max: 464, min: 0 },
@@ -77,15 +84,27 @@ const Online = () => {
     console.log('clicked')
   }
 
+  // return (
+  //   <Box className="online-container">
+  //     <Box className="online-title">
+  //       <Typography variant="h5">Online Consultation</Typography>
+  //     </Box>
+  //     <Box className="online-consult">
+  //       <Carousel
+  //         infinite={true}
+  //         itemclassName="carousel-item-padding-40px"
+  //     partialVisibilityGutter: 30
+  //   }
+  // };
   return (
-    <Box className="online-container">
-      <Box className="online-title">
-        <Typography variant="h5">Online Consultation</Typography>
+    <Box className='online-container'>
+      <Box className='online-title'>
+        <Typography variant='h5' >Online Consultation</Typography>
       </Box>
-      <Box className="online-consult">
-        <Carousel
+      <Box className='online-consult'>
+        <Carousel 
           infinite={true}
-          itemclassName="carousel-item-padding-40px"
+          itemClass="carousel-item-padding-40px"
           autoPlay={true}
           autoPlaySpeed={5000}
           transitionDuration="all .8"
@@ -197,6 +216,7 @@ const Online = () => {
         </Box> */}
         </Box>
       </Modal>
+
     </Box>
   )
 }

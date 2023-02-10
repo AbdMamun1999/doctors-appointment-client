@@ -1,13 +1,31 @@
-import { Provider } from "react-redux";
+import { onAuthStateChanged } from "firebase/auth";
+import { useEffect, useState } from "react";
+import { Toaster } from "react-hot-toast";
+import { useDispatch } from "react-redux";
 import { RouterProvider } from "react-router-dom";
-import store from "./app/app";
+import {  setTokenAndRole, setUser } from "./features/auth/authSlice";
+import auth from "./firebase/firebase.config";
+import useToken from "./hooks/useToken";
 import routes from "./routes/routes";
 
 function App() {
+  const dispatch = useDispatch();
+  // const token = useToken()
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        dispatch(setUser(user.email));
+        // dispatch(setTokenAndRole(token))
+      }
+    });
+  }, []);
+
   return (
-    <Provider store={store}>
+    <>
       <RouterProvider router={routes} />
-    </Provider>
+      <Toaster position="top-center" reverseOrder={false} />
+    </>
   );
 }
 

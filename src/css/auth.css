@@ -1,0 +1,70 @@
+.auth-container{
+    height: 50vh;
+}
+.auth-container > div{
+    margin-top:143px;
+    width:30vw
+
+}
+
+
+
+
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+   
+    .auth-container > div{
+        margin-top:143px;
+        width:90vw
+    
+    }
+   
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+    .auth-container > div{
+        margin-top:143px;
+        width:70vw
+    
+    }
+
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .auth-container > div{
+        margin-top:143px;
+        width:50vw
+    
+    }
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .auth-container > div{
+        margin-top:143px;
+        width:40vw
+    
+    }
+}
+/* Extra large devices (large laptops and desktops, 1024px and up) */
+@media only screen and (min-width: 1024px) {
+ 
+    .auth-container > div{
+        margin-top:143px;
+        width:40vw
+    
+    }
+    
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+    .auth-container > div{
+        margin-top:143px;
+        width:30vw
+    
+    }
+}

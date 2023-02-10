@@ -43,6 +43,7 @@ const Slider=({...props})=>{
         <Carousel 
           infinite={true}
           itemclassName="carousel-item-padding-40px"
+          
           autoPlay={true}
           autoPlaySpeed={5000}
           transitionDuration="all .8"

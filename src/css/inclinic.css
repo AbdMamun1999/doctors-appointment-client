@@ -1,6 +1,7 @@
 .inclinic-container{
     padding-top: 25px;
     padding-bottom: 40px;
+    padding-bottom: 30px;
     width: 90%;
     margin: auto;
 }
@@ -15,6 +16,7 @@
 .clinic-image:hover{
     transform: scale(1.1);
 }
+
 
 .inclinic-title{
     /* width: 90%; */
@@ -88,8 +90,9 @@
     .inclinic > div{
         width: 100%;
     }
+    } 
    
-}
+
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
     .inclinic {
@@ -99,6 +102,10 @@
         grid-template-columns: repeat(2,1fr);
         column-gap:30px;
         row-gap: 30px;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        column-gap: 10px;
+        row-gap: 10px;
         text-align: center;
         justify-content: center;
         align-items: center;
@@ -117,6 +124,8 @@
         grid-template-columns: repeat(3,1fr);
         column-gap: 30px;
         row-gap: 30px;
+        column-gap: 10px;
+        row-gap: 10px;
         text-align: center;
         justify-content: center;
         align-items: center;
@@ -130,6 +139,9 @@
         grid-template-columns: repeat(3,1fr);
         column-gap: 20px;
         row-gap: 20px;
+        grid-template-columns: repeat(4,1fr);
+        column-gap: 10px;
+        row-gap: 10px;
         text-align: center;
         justify-content: center;
         align-items: center;
@@ -149,6 +161,10 @@
         grid-template-columns: repeat(4,1fr);
         column-gap: 40px;
         row-gap: 40px;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        column-gap: 10px;
+        row-gap: 10px;
         text-align: center;
         justify-content: center;
         align-items: center;

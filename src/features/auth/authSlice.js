@@ -4,6 +4,7 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import auth from "../../firebase/firebase.config";
+import axios from "axios";
 
 const initialState = {
   email: "",
@@ -11,6 +12,7 @@ const initialState = {
   isLoading: false,
   isError: false,
   error: "",
+  token: "",
 };
 
 export const createUser = createAsyncThunk(
@@ -18,6 +20,13 @@ export const createUser = createAsyncThunk(
   async ({ email, password }) => {
     console.log(email, password);
     const data = await createUserWithEmailAndPassword(auth, email, password);
+
+    /*  console.log(data)
+    const userInfo = await userPost();
+    if (data.user.email) {
+      console.log(userInfo);
+    } */
+
     return data.user.email;
   }
 );
@@ -30,16 +39,32 @@ export const userLogin = createAsyncThunk(
   }
 );
 
+export const userGetStarted = createAsyncThunk(
+  "auth/userGetStarted",
+  async (user) => {
+    const data = await axios.post(
+      "http://localhost:5000/user/user-register",
+      user
+    );
+    localStorage.setItem("token", data.data.token);
+  }
+);
+
 const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
     setUser: (state, action) => {
       state.email = action.payload;
+      state.email = action.payload.email;
       state.isLoading = false;
     },
     logout: (state) => {
       state.email = "";
+    },
+    setTokenAndRole: (state, action) => {
+      state.role = action.payload.role;
+      // state.token = action.payload.token;
     },
   },
   extraReducers: (builder) => {
@@ -81,6 +106,7 @@ const authSlice = createSlice({
   },
 });
 
-export const { setUser, logout } = authSlice.actions;
+
+export const { setUser, logout,setTokenAndRole } = authSlice.actions;
 
 export default authSlice.reducer;

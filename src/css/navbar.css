@@ -10,3 +10,8 @@
 .navButton{
     text-decoration: none;
 }
+
+.dropDownList > a{
+    list-style: none;
+    text-decoration: none;
+}
