@@ -5,6 +5,7 @@ import Main from "../Layouts/main/Main";
 import Home from "../pages/main/Home";
 import Contactus from "../components/ContactUs/Contactus";
 
+
 const { createBrowserRouter } = require("react-router-dom");
 
 const routes = createBrowserRouter([
@@ -13,9 +14,10 @@ const routes = createBrowserRouter([
     element: <Main />,
     children:[
       {
-        path:"/",
+        path:"",
         element:<Home/>
       },
+      
       {
         path:'Specialities',
         element:<Specialities />
@@ -34,6 +36,7 @@ const routes = createBrowserRouter([
       }
     ]
   },
+ 
 
 ]);
 
