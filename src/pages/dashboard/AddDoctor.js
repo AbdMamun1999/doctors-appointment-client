@@ -5,16 +5,18 @@ import {
   FormControl,
   FormControlLabel,
   FormLabel,
+  InputLabel,
   MenuItem,
   Radio,
   RadioGroup,
+  Select,
   Stack,
   TextareaAutosize,
   TextField,
   Typography,
 } from "@mui/material";
 import { Box } from "@mui/system";
-import React from "react";
+import React, { useState } from "react";
 import { styled } from "@mui/material/styles";
 
 const InputFieldWrapper = styled(Box)(({ theme }) => ({
@@ -28,13 +30,7 @@ const InputFieldWrapper = styled(Box)(({ theme }) => ({
     "flex-direction": "row",
   },
   justifyContent: "space-between",
-}));
-
-const InputField = styled(TextField)(({ theme }) => ({
-  "&:focus": {
-    color: "#2e8b57",
-    backgroundColor: "green",
-  },
+  alignItems: "center",
 }));
 
 const currencies = [
@@ -56,137 +52,212 @@ const currencies = [
   },
 ];
 
-const handleSubmit = (event) => {
-  event.preventDefault();
-  const data = new FormData(event.currentTarget);
-
-  console.log(event);
-};
-
 const AddDoctor = () => {
+  const [department, setDepartment] = useState("");
+  const [bloodGroup, setBloodGroup] = useState("");
+
+  const handleDepartment = (event) => {
+    setDepartment(event.target.value);
+  };
+
+  const handleBloodGroup = (event) => {
+    setBloodGroup(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const user = new FormData(event.currentTarget);
+    console.log(user);
+  };
   return (
     <Box
       sx={{
         backgroundColor: "#f1f5fc",
         padding: 5,
-        // height: "100vh",
-        display: "flex",
-        gap: 5,
-        justifyContent: "space-between",
       }}
     >
       <Box
         component="form"
         onSubmit={handleSubmit}
-        sx={{ backgroundColor: "white", width: "60%" }}
+        sx={{ backgroundColor: "white" }}
       >
         <Typography variant="h4" sx={{ p: 2 }}>
           Add Doctors
         </Typography>
         <Divider />
         <InputFieldWrapper>
-          <InputField
+          <TextField
+            margin="normal"
+            required
             fullWidth
-            id="filled-basic"
+            id="firstName"
             label="First Name"
-            variant="filled"
+            name="firstName"
+            autoComplete="firstName"
+            autoFocus
           />
-          <InputField
+          <TextField
+            margin="normal"
+            required
             fullWidth
-            id="filled-basic"
-            label="First Name"
-            variant="filled"
+            id="lastName"
+            label="Last Name"
+            name="lastName"
+            autoComplete="lastName"
+            autoFocus
           />
         </InputFieldWrapper>
         <InputFieldWrapper>
-          <InputField
+          <TextField
+            margin="normal"
+            required
             fullWidth
-            id="filled-basic"
+            id="email"
             label="Email Address"
-            variant="filled"
+            name="email"
             type="email"
+            autoComplete="email"
+            autoFocus
           />
         </InputFieldWrapper>
         <InputFieldWrapper>
-          <InputField
+          <TextField
+            margin="normal"
+            required
             fullWidth
-            id="filled-basic"
-            label="Enter Password"
-            variant="filled"
+            id="password"
+            label="Password"
+            name="password"
             type="password"
+            autoComplete="password"
+            autoFocus
           />
         </InputFieldWrapper>
         <InputFieldWrapper>
-          <InputField
+          <TextField
+            margin="normal"
+            required
             fullWidth
-            id="filled-basic"
+            id="designation"
             label="Designation"
-            variant="filled"
+            name="designation"
+            autoComplete="designation"
+            autoFocus
           />
-          <InputField
-            fullWidth
-            id="filled-basic"
-            label="Department"
-            variant="filled"
-          />
+          <FormControl fullWidth>
+            <InputLabel id="demo-simple-select-label">Department</InputLabel>
+            <Select
+              fullWidth
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={department}
+              label="Age"
+              onChange={handleDepartment}
+            >
+              <MenuItem value={"Casualty department"}>
+                Casualty department
+              </MenuItem>
+              <MenuItem value={"Operating theatre (OT)"}>
+                Operating theatre (OT)
+              </MenuItem>
+              <MenuItem value={"Intensive care unit (ICU)"}>
+                Intensive care unit (ICU)
+              </MenuItem>
+              <MenuItem value={"Anesthesiology department"}>
+                Anesthesiology department
+              </MenuItem>
+              <MenuItem value={"Cardiology department"}>
+                Cardiology department
+              </MenuItem>
+              <MenuItem value={" ENT department"}>ENT department</MenuItem>
+            </Select>
+          </FormControl>
         </InputFieldWrapper>
         <InputFieldWrapper>
-          <InputField
+          <TextField
+            margin="normal"
+            required
             fullWidth
-            id="filled-basic"
+            id="specialist"
             label="Specialist"
-            variant="filled"
+            name="specialist"
+            autoComplete="specialist"
+            autoFocus
           />
 
-          <InputField
+          <TextField
+            margin="normal"
+            required
             fullWidth
-            id="filled-basic"
+            id="mobile"
             label="Mobile"
-            variant="filled"
+            name="mobile"
+            autoComplete="mobile"
+            autoFocus
           />
         </InputFieldWrapper>
         <InputFieldWrapper>
-          <InputField
+          <TextField
+            margin="normal"
+            required
             fullWidth
-            id="filled-basic"
-            variant="filled"
-            type="file"
+            id="hospital"
+            label="Hospital"
+            name="hospital"
+            autoComplete="hospital"
+            autoFocus
           />
         </InputFieldWrapper>
         <InputFieldWrapper>
-          <InputField
-            fullWidth
+          <TextField
+            margin="normal"
             multiline
-            id="filled-basic"
-            variant="filled"
-            label="Specialist"
-            placeholder="This "
+            required
+            fullWidth
+            id="about"
+            label="About Doctor"
+            name="about"
+            autoComplete="about"
+            autoFocus
             minRows={3}
           />
         </InputFieldWrapper>
         <InputFieldWrapper>
-          <InputField
+          <TextField
+            margin="normal"
+            required
             fullWidth
-            label="Specialist"
-            id="filled-basic"
-            variant="filled"
+            id="date"
+            label="Date of Birth"
+            name="date"
+            autoComplete="date"
+            autoFocus
           />
-          <InputField
-            fullWidth
-            id="filled-select-currency"
-            select
-            label="Blood Group"
-            defaultValue="A+"
-            helperText="Please select your Blood Group"
-            variant="filled"
-          >
-            {currencies.map((option, index) => (
-              <MenuItem key={index} value={option.value}>
-                {option.label}
-              </MenuItem>
-            ))}
-          </InputField>
+
+          <FormControl fullWidth>
+            <InputLabel id="demo-simple-select-label">Blood Group</InputLabel>
+            <Select
+              fullWidth
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={bloodGroup}
+              label="Age"
+              onChange={handleBloodGroup}
+            >
+              <MenuItem value={"A+"}>A+</MenuItem>
+              <MenuItem value={"A-"}>A-</MenuItem>
+              <MenuItem value={"B+"}>B+</MenuItem>
+              <MenuItem value={"B-"}>B-</MenuItem>
+              <MenuItem value={"O+"}>O+</MenuItem>
+              <MenuItem value={"O-"}>O-</MenuItem>
+            </Select>
+          </FormControl>
         </InputFieldWrapper>
+
+        <InputFieldWrapper>
+          <TextField fullWidth type="file" />
+        </InputFieldWrapper>
+
         <Box sx={{ padding: "20px 30px" }}>
           <FormLabel id="demo-row-radio-buttons-group-label">Gender</FormLabel>
           <RadioGroup
@@ -205,11 +276,11 @@ const AddDoctor = () => {
         </Box>
         <Stack direction="row" spacing={5} sx={{ padding: "20px 30px" }}>
           <Button variant="contained">Reset</Button>
-          <Button type="submit" variant="contained">Submit</Button>
+          <Button type="submit" variant="contained">
+            Submit
+          </Button>
         </Stack>
       </Box>
-
-      <Box sx={{ backgroundColor: "white", width: "35%" }}>dda</Box>
     </Box>
   );
 };
