@@ -40,7 +40,7 @@ const Login = () => {
 
   useEffect(() => {
     if (!isLoading && email) {
-      navigate("/get-started");
+      navigate("/");
     }
   }, [isLoading, email]);
 

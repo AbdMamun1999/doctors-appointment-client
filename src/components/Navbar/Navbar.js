@@ -180,8 +180,8 @@ const Navbar = () => {
             HOME
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Link key={page} className="navButton" to={`/${page}`}>
+            {pages.map((page,index) => (
+              <Link key={index} className="navButton" to={`/${page}`}>
                 <Button
                   className={navbar ? "navbar" : "navbar active"}
                   onClick={handleCloseNavMenu}
@@ -227,7 +227,7 @@ const Navbar = () => {
                 <Typography sx={{textAlign:'center'}}>Profile</Typography>
               </MenuItem>
               <MenuItem>
-                <Typography sx={{textAlign:'center'}}>Dashboard</Typography>
+                <Link to="/dashboard" sx={{textAlign:'center'}}>Dashboard</Link>
               </MenuItem>
               <MenuItem>
                 {email ? (

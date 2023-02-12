@@ -8,6 +8,11 @@ import Login from "../pages/main/Login";
 import Signup from "../pages/main/Signup";
 import GetStarted from "../pages/main/GetStarted";
 import Dashboard from "../Layouts/dashboard/Dashboard";
+import AddDoctor from "../pages/dashboard/AddDoctor";
+import DoctorList from "../pages/dashboard/DoctorList";
+import PatientList from "../pages/dashboard/Patient/PatientList";
+import Appointment from "../pages/dashboard/Patient/Appointment";
+import MyAppointment from "../pages/dashboard/MyAppointments";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -38,16 +43,35 @@ const routes = createBrowserRouter([
       },
       { path: "login", element: <Login /> },
       { path: "register", element: <Signup /> },
-      {path:"get-started",element:<GetStarted/>}
+      { path: "get-started", element: <GetStarted /> },
     ],
   },
   {
-    path:'/dashboard',
-    element:<Dashboard/>,
-    // children:[
-    //   {}
-    // ]
-  }
+    path: "/dashboard",
+    element: <Dashboard />,
+    children: [
+      {
+        path: "add-doctor",
+        element: <AddDoctor />,
+      },
+      {
+        path: "doctorlist",
+        element: <DoctorList />,
+      },
+      {
+        path: "patientlist",
+        element: <PatientList />,
+      },
+      {
+        path: "appointment-for-patient",
+        element: <MyAppointment />,
+      },
+      {
+        path: "appointment-for-doctor",
+        element: <Appointment />,
+      },
+    ],
+  },
 ]);
 
 export default routes;

@@ -1,10 +1,11 @@
 import React from 'react';
-import MiniDrawer from '../../components/RightDrawer/RightDrawer';
+import RightDrawer from '../../components/RightDrawer/RightDrawer'
+
 
 const Dashboard = () => {
     return (
         <div>
-            <MiniDrawer/>
+            <RightDrawer/>
         </div>
     );
 };

@@ -5,14 +5,25 @@ import {
 } from "firebase/auth";
 import auth from "../../firebase/firebase.config";
 import axios from "axios";
+import jwt_decode from "jwt-decode";
+
+const userToken = localStorage.getItem("accessToken")
+  ? localStorage.getItem("accessToken")
+  : null;
+
+let role;
+if (userToken) {
+  const decodedUser = jwt_decode(userToken);
+  role = decodedUser.role;
+}
 
 const initialState = {
   email: "",
-  role: "",
+  role,
+  userToken,
   isLoading: false,
   isError: false,
   error: "",
-  token: "",
 };
 
 export const createUser = createAsyncThunk(
@@ -20,13 +31,6 @@ export const createUser = createAsyncThunk(
   async ({ email, password }) => {
     console.log(email, password);
     const data = await createUserWithEmailAndPassword(auth, email, password);
-
-    /*  console.log(data)
-    const userInfo = await userPost();
-    if (data.user.email) {
-      console.log(userInfo);
-    } */
-
     return data.user.email;
   }
 );
@@ -35,6 +39,20 @@ export const userLogin = createAsyncThunk(
   "auth/userLogin",
   async ({ email, password }) => {
     const data = await signInWithEmailAndPassword(auth, email, password);
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    const user = await axios.post(
+      `http://localhost:5000/user/login`,
+      { email },
+      config
+    );
+    console.log(user);
+    localStorage.setItem("accessToken", user?.data?.token);
     return data.user.email;
   }
 );
@@ -46,7 +64,8 @@ export const userGetStarted = createAsyncThunk(
       "http://localhost:5000/user/user-register",
       user
     );
-    localStorage.setItem("token", data.data.token);
+
+    localStorage.setItem("accessToken", data?.data?.token);
   }
 );
 
@@ -55,15 +74,14 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     setUser: (state, action) => {
-      state.email = action.payload.email;
+      state.email = action.payload;
       state.isLoading = false;
     },
     logout: (state) => {
       state.email = "";
-    },
-    setTokenAndRole: (state, action) => {
-      state.role = action.payload.role;
-      // state.token = action.payload.token;
+      state.role = "";
+      state.userToken = "";
+      localStorage.setItem("accessToken", "");
     },
   },
   extraReducers: (builder) => {
@@ -105,6 +123,6 @@ const authSlice = createSlice({
   },
 });
 
-export const { setUser, logout,setTokenAndRole } = authSlice.actions;
+export const { setUser, logout } = authSlice.actions;
 
 export default authSlice.reducer;
